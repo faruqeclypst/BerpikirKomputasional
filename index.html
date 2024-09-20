@@ -159,30 +159,40 @@
                         <h3 class="text-2xl font-semibold mb-4">2.4 Implementasi Rekursi dalam C++</h3>
                         <pre class="line-numbers bg-gray-100 p-4 rounded-lg overflow-x-auto">
 <code class="language-cpp">
-#include &lt;iostream&gt;
+#include <iostream>
 using namespace std;
 
 // Fungsi rekursif untuk menghitung faktorial
-int factorial(int n) {
-    if (n == 0 || n == 1) {  // Kasus dasar
+int faktorial(int n) {
+    // Kasus dasar: faktorial 0 atau 1 adalah 1
+    if (n == 0 || n == 1) {
         return 1;
-    } else {  // Kasus rekursif
-        return n * factorial(n - 1);
+    }
+    // Kasus rekursif: n! = n * (n-1)!
+    else {
+        return n * faktorial(n - 1);
     }
 }
 
 // Fungsi rekursif untuk menghitung pangkat
-int power(int base, int exponent) {
-    if (exponent == 0) {  // Kasus dasar
+int pangkat(int basis, int eksponen) {
+    // Kasus dasar: apapun dipangkatkan 0 hasilnya 1
+    if (eksponen == 0) {
         return 1;
-    } else {  // Kasus rekursif
-        return base * power(base, exponent - 1);
+    }
+    // Kasus rekursif: basis^eksponen = basis * basis^(eksponen-1)
+    else {
+        return basis * pangkat(basis, eksponen - 1);
     }
 }
 
 int main() {
-    cout << "Factorial of 5: " << factorial(5) << endl;
-    cout << "2 to the power of 4: " << power(2, 4) << endl;
+    // Menghitung dan menampilkan faktorial dari 5
+    cout << "Faktorial dari 5: " << faktorial(5) << endl;
+    
+    // Menghitung dan menampilkan 2 pangkat 4
+    cout << "2 pangkat 4: " << pangkat(2, 4) << endl;
+    
     return 0;
 }
 </code>
@@ -252,43 +262,61 @@ int main() {
                         <h3 class="text-2xl font-semibold mb-4">3.4 Implementasi Algoritma Greedy dalam C++</h3>
                         <pre class="line-numbers bg-gray-100 p-4 rounded-lg overflow-x-auto">
 <code class="language-cpp">
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;algorithm&gt;
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-struct Item {
-    int value, weight;
-    double ratio;
+// Struktur untuk merepresentasikan sebuah item
+struct Barang {
+    int nilai;    // Nilai barang
+    int berat;    // Berat barang
+    double rasio; // Rasio nilai per berat
 };
 
-bool compare(Item a, Item b) {
-    return a.ratio > b.ratio;
+// Fungsi untuk membandingkan dua barang berdasarkan rasionya
+bool bandingkanRasio(Barang a, Barang b) {
+    return a.rasio > b.rasio;
 }
 
-double fractionalKnapsack(vector&lt;Item&gt;& items, int capacity) {
-    sort(items.begin(), items.end(), compare);
+// Fungsi untuk menyelesaikan masalah Fractional Knapsack
+double knapsackFraksional(vector<Barang>& barang, int kapasitas) {
+    // Mengurutkan barang berdasarkan rasio nilai per berat (dari besar ke kecil)
+    sort(barang.begin(), barang.end(), bandingkanRasio);
     
-    double totalValue = 0.0;
-    for (auto& item : items) {
-        if (capacity >= item.weight) {
-            totalValue += item.value;
-            capacity -= item.weight;
+    double totalNilai = 0.0;
+    
+    // Memasukkan barang ke dalam tas
+    for (auto& item : barang) {
+        if (kapasitas >= item.berat) {
+            // Jika barang bisa dimasukkan seluruhnya
+            totalNilai += item.nilai;
+            kapasitas -= item.berat;
         } else {
-            totalValue += item.value * ((double)capacity / item.weight);
-            break;
+            // Jika hanya sebagian barang yang bisa dimasukkan
+            totalNilai += item.nilai * ((double)kapasitas / item.berat);
+            break; // Tas sudah penuh, keluar dari loop
         }
     }
-    return totalValue;
+    
+    return totalNilai;
 }
 
 int main() {
-    vector&lt;Item&gt; items = {{60, 10}, {100, 20}, {120, 30}};
-    for (auto& item : items) {
-        item.ratio = (double)item.value / item.weight;
+    // Inisialisasi daftar barang: {nilai, berat}
+    vector<Barang> daftarBarang = {{60, 10}, {100, 20}, {120, 30}};
+    
+    // Menghitung rasio nilai per berat untuk setiap barang
+    for (auto& barang : daftarBarang) {
+        barang.rasio = (double)barang.nilai / barang.berat;
     }
-    int capacity = 50;
-    cout << "Maximum value: " << fractionalKnapsack(items, capacity) << endl;
+    
+    int kapasitasTas = 50;
+    
+    // Menjalankan algoritma dan menampilkan hasil
+    cout << "Nilai maksimum yang bisa dibawa: " 
+         << knapsackFraksional(daftarBarang, kapasitasTas) << endl;
+    
     return 0;
 }
 </code>

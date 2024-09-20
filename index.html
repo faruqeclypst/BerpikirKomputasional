@@ -381,38 +381,34 @@ int main() {
                         <h3 class="text-2xl font-semibold mb-4">4.5 Implementasi Pemrograman Dinamis dalam C++</h3>
                         <pre class="line-numbers bg-gray-100 p-4 rounded-lg overflow-x-auto">
 <code class="language-cpp">
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
+#include <iostream>
+#include <vector>
 using namespace std;
 
-// Bottom-up approach for Fibonacci sequence
-int fibonacciDP(int n) {
-    vector&lt;int&gt; fib(n + 1);
+// Fungsi untuk menghitung bilangan Fibonacci dengan pendekatan bottom-up
+int fibonacciBottomUp(int n) {
+    // Membuat vektor untuk menyimpan hasil perhitungan
+    vector<int> fib(n + 1);
+    
+    // Inisialisasi dua bilangan Fibonacci pertama
     fib[0] = 0;
     fib[1] = 1;
+    
+    // Menghitung bilangan Fibonacci dari indeks 2 hingga n
     for (int i = 2; i <= n; i++) {
         fib[i] = fib[i-1] + fib[i-2];
     }
+    
+    // Mengembalikan bilangan Fibonacci ke-n
     return fib[n];
-}
-
-// Top-down approach for Fibonacci sequence
-int fibMemo(int n, vector&lt;int&gt;& memo) {
-    if (n <= 1) return n;
-    if (memo[n] != -1) return memo[n];
-    memo[n] = fibMemo(n-1, memo) + fibMemo(n-2, memo);
-    return memo[n];
-}
-
-int fibonacciMemo(int n) {
-    vector&lt;int&gt; memo(n + 1, -1);
-    return fibMemo(n, memo);
 }
 
 int main() {
     int n = 10;
-    cout << "10th Fibonacci number (Bottom-up): " << fibonacciDP(n) << endl;
-    cout << "10th Fibonacci number (Top-down): " << fibonacciMemo(n) << endl;
+    
+    // Menghitung dan menampilkan bilangan Fibonacci ke-10
+    cout << "Bilangan Fibonacci ke-10: " << fibonacciBottomUp(n) << endl;
+    
     return 0;
 }
 </code>

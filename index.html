@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berpikir Komputasional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <style>
+		body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 font-bold text-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Berpikir Komputasional</h1>
+            <button id="menuBtn" class="md:hidden">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="menu" class="hidden md:flex space-x-4">
+                <li><a href="#" class="hover:text-blue-200" onclick="showPage(0)">Pengantar</a></li>
+                <li><a href="#" class="hover:text-blue-200" onclick="showPage(1)">Rekursi</a></li>
+                <li><a href="#" class="hover:text-blue-200" onclick="showPage(2)">Algoritma Greedy</a></li>
+                <li><a href="#" class="hover:text-blue-200" onclick="showPage(3)">Pemrograman Dinamis</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-8">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <div id="pageContainer">
+                <!-- Page 1: Pengantar -->
+                <div class="page active">
+                    <h2 class="text-3xl font-bold mb-6">Modul 1: Pengantar Berpikir Komputasional</h2>
+                    
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">1.1 Definisi Berpikir Komputasional</h3>
+                        <p class="mb-4">Berpikir komputasional adalah proses pemecahan masalah yang melibatkan perumusan masalah dan solusinya sehingga solusi tersebut dapat direpresentasikan dalam bentuk yang dapat dijalankan oleh agen pemroses informasi (seperti komputer atau manusia).</p>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">1.2 Komponen Utama Berpikir Komputasional</h3>
+                        <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li>
+                                <strong>Dekomposisi</strong>
+                                <p class="ml-6">Definisi: Memecah masalah kompleks menjadi bagian-bagian yang lebih kecil dan mudah dikelola.</p>
+                                <p class="ml-6">Contoh kehidupan sehari-hari: Menyusun jadwal harian dengan membagi aktivitas menjadi pagi, siang, dan malam.</p>
+                            </li>
+                            <li>
+                                <strong>Pengenalan Pola</strong>
+                                <p class="ml-6">Definisi: Mengidentifikasi kesamaan atau tren dalam data.</p>
+                                <p class="ml-6">Contoh kehidupan sehari-hari: Mengenali pola cuaca musiman untuk merencanakan kegiatan outdoor.</p>
+                            </li>
+                            <li>
+                                <strong>Abstraksi</strong>
+                                <p class="ml-6">Definisi: Menyaring informasi yang tidak relevan dan fokus pada yang penting.</p>
+                                <p class="ml-6">Contoh kehidupan sehari-hari: Membuat peta subway yang hanya menunjukkan stasiun dan rute, tanpa detail geografis lainnya.</p>
+                            </li>
+                            <li>
+                                <strong>Perancangan Algoritma</strong>
+                                <p class="ml-6">Definisi: Membuat langkah-langkah untuk menyelesaikan masalah.</p>
+                                <p class="ml-6">Contoh kehidupan sehari-hari: Membuat resep masakan dengan urutan langkah-langkah yang jelas.</p>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">1.3 Penerapan Berpikir Komputasional dalam Kehidupan Sehari-hari</h3>
+                        <div class="mb-4">
+                            <h4 class="text-xl font-semibold mb-2">a) Merencanakan Perjalanan</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Dekomposisi: Membagi perjalanan menjadi segmen (transportasi, akomodasi, aktivitas).</li>
+                                <li>Pengenalan Pola: Mengidentifikasi tren harga tiket untuk mendapatkan penawaran terbaik.</li>
+                                <li>Abstraksi: Fokus pada atraksi utama di setiap destinasi.</li>
+                                <li>Algoritma: Membuat itinerary harian dengan urutan aktivitas yang efisien.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-2">b) Mengelola Keuangan Pribadi</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Dekomposisi: Memecah pengeluaran menjadi kategori (makanan, transportasi, hiburan).</li>
+                                <li>Pengenalan Pola: Mengidentifikasi pola pengeluaran bulanan.</li>
+                                <li>Abstraksi: Fokus pada pengeluaran besar yang dapat dihemat.</li>
+                                <li>Algoritma: Membuat langkah-langkah untuk mencapai target tabungan.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-2xl font-semibold mb-4">Latihan</h3>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Jelaskan bagaimana Anda akan menggunakan berpikir komputasional untuk merencanakan pesta ulang tahun.</li>
+                            <li>Identifikasi komponen berpikir komputasional dalam proses memilih universitas.</li>
+                        </ol>
+                    </section>
+                </div>
+
+                <!-- Page 2: Rekursi -->
+                <div class="page">
+                    <h2 class="text-3xl font-bold mb-6">Modul 2: Rekursi</h2>
+                    
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">2.1 Konsep Dasar Rekursi</h3>
+                        <p class="mb-4">Rekursi adalah metode pemecahan masalah di mana solusi untuk masalah bergantung pada solusi untuk instance yang lebih kecil dari masalah yang sama.</p>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">2.2 Komponen Rekursi</h3>
+                        <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li>
+                                <strong>Kasus Dasar (Base Case)</strong>
+                                <p class="ml-6">Definisi: Kondisi yang menghentikan rekursi.</p>
+                                <p class="ml-6">Contoh: Dalam perhitungan faktorial, kasus dasar adalah ketika n = 0 atau 1.</p>
+                            </li>
+                            <li>
+                                <strong>Kasus Rekursif (Recursive Case)</strong>
+                                <p class="ml-6">Definisi: Kasus di mana fungsi memanggil dirinya sendiri.</p>
+                                <p class="ml-6">Contoh: Dalam perhitungan faktorial, n! = n * (n-1)!</p>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">2.3 Contoh Rekursi dalam Kehidupan Sehari-hari</h3>
+                        <div class="mb-4">
+                            <h4 class="text-xl font-semibold mb-2">a) Mencari Item yang Hilang</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Proses: Memeriksa satu ruangan, jika tidak ditemukan, pindah ke ruangan berikutnya.</li>
+                                <li>Kasus Dasar: Item ditemukan atau semua ruangan sudah diperiksa.</li>
+                                <li>Kasus Rekursif: Memeriksa ruangan berikutnya.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-2">b) Menjelaskan Konsep</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Proses: Menjelaskan konsep, jika belum dipahami, jelaskan dengan cara yang lebih sederhana.</li>
+                                <li>Kasus Dasar: Konsep dipahami atau penjelasan paling sederhana tercapai.</li>
+                                <li>Kasus Rekursif: Menyederhanakan penjelasan.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">2.4 Implementasi Rekursi dalam C++</h3>
+                        <pre class="line-numbers bg-gray-100 p-4 rounded-lg overflow-x-auto">
+<code class="language-cpp">
+#include &lt;iostream&gt;
+using namespace std;
+
+// Fungsi rekursif untuk menghitung faktorial
+int factorial(int n) {
+    if (n == 0 || n == 1) {  // Kasus dasar
+        return 1;
+    } else {  // Kasus rekursif
+        return n * factorial(n - 1);
+    }
+}
+
+// Fungsi rekursif untuk menghitung pangkat
+int power(int base, int exponent) {
+    if (exponent == 0) {  // Kasus dasar
+        return 1;
+    } else {  // Kasus rekursif
+        return base * power(base, exponent - 1);
+    }
+}
+
+int main() {
+    cout << "Factorial of 5: " << factorial(5) << endl;
+    cout << "2 to the power of 4: " << power(2, 4) << endl;
+    return 0;
+}
+</code>
+                        </pre>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">2.5 Keuntungan dan Kerugian Rekursi</h3>
+                        <div class="mb-4">
+                            <h4 class="text-xl font-semibold mb-2">Keuntungan:</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Kode lebih singkat dan mudah dibaca untuk beberapa jenis masalah.</li>
+                                <li>Cocok untuk masalah yang memiliki struktur rekursif alami (seperti traversal tree).</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-2">Kerugian:</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Dapat menyebabkan overhead memori karena setiap pemanggilan rekursif menambah stack frame.</li>
+                                <li>Mungkin tidak efisien untuk masalah besar karena dapat menyebabkan stack overflow.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-2xl font-semibold mb-4">Latihan</h3>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Implementasikan fungsi rekursif untuk menghitung jumlah digit dari sebuah angka.</li>
+                            <li>Buat fungsi rekursif untuk menghitung suku ke-n dari deret Fibonacci.</li>
+                        </ol>
+                    </section>
+                </div>
+
+                <!-- Page 3: Algoritma Greedy -->
+                <div class="page">
+                    <h2 class="text-3xl font-bold mb-6">Modul 3: Algoritma Greedy</h2>
+                    
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">3.1 Konsep Dasar Algoritma Greedy</h3>
+                        <p class="mb-4">Algoritma Greedy adalah strategi pemecahan masalah yang membuat pilihan optimal lokal pada setiap langkah dengan harapan mencapai solusi optimal global.</p>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">3.2 Karakteristik Algoritma Greedy</h3>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>Membuat pilihan yang tampak terbaik saat itu.</li>
+                            <li>Tidak pernah mempertimbangkan kembali pilihan sebelumnya.</li>
+                            <li>Biasanya lebih cepat daripada pendekatan exhaustive.</li>
+                        </ul>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">3.3 Contoh Algoritma Greedy dalam Kehidupan Sehari-hari</h3>
+                        <div class="mb-4">
+                            <h4 class="text-xl font-semibold mb-2">a) Memilih Rute Tercepat</h4>
+                            <p class="ml-6">Proses: Selalu memilih jalan yang tampak paling cepat di setiap persimpangan.</p>
+                            <p class="ml-6">Greedy Choice: Jalan tercepat saat ini.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-2">b) Berbelanja dengan Anggaran Terbatas</h4>
+                            <p class="ml-6">Proses: Membeli barang dengan rasio nilai/harga tertinggi hingga anggaran habis.</p>
+                            <p class="ml-6">Greedy Choice: Barang dengan rasio nilai/harga tertinggi.</p>
+                        </div>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">3.4 Implementasi Algoritma Greedy dalam C++</h3>
+                        <pre class="line-numbers bg-gray-100 p-4 rounded-lg overflow-x-auto">
+<code class="language-cpp">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+struct Item {
+    int value, weight;
+    double ratio;
+};
+
+bool compare(Item a, Item b) {
+    return a.ratio > b.ratio;
+}
+
+double fractionalKnapsack(vector&lt;Item&gt;& items, int capacity) {
+    sort(items.begin(), items.end(), compare);
+    
+    double totalValue = 0.0;
+    for (auto& item : items) {
+        if (capacity >= item.weight) {
+            totalValue += item.value;
+            capacity -= item.weight;
+        } else {
+            totalValue += item.value * ((double)capacity / item.weight);
+            break;
+        }
+    }
+    return totalValue;
+}
+
+int main() {
+    vector&lt;Item&gt; items = {{60, 10}, {100, 20}, {120, 30}};
+    for (auto& item : items) {
+        item.ratio = (double)item.value / item.weight;
+    }
+    int capacity = 50;
+    cout << "Maximum value: " << fractionalKnapsack(items, capacity) << endl;
+    return 0;
+}
+</code>
+                        </pre>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">3.5 Keuntungan dan Kerugian Algoritma Greedy</h3>
+                        <div class="mb-4">
+                            <h4 class="text-xl font-semibold mb-2">Keuntungan:</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Sederhana dan mudah diimplementasikan.</li>
+                                <li>Efisien dalam hal waktu eksekusi.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-2">Kerugian:</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Tidak selalu menghasilkan solusi optimal global.</li>
+                                <li>Sulit untuk membuktikan kebenaran solusi.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-2xl font-semibold mb-4">Latihan</h3>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Implementasikan algoritma Greedy untuk masalah penukaran koin (memberi kembalian dengan jumlah koin minimum).</li>
+                            <li>Gunakan pendekatan Greedy untuk menyelesaikan masalah penjadwalan tugas dengan deadline.</li>
+                        </ol>
+                    </section>
+                </div>
+
+                <!-- Page 4: Pemrograman Dinamis -->
+                <div class="page">
+                    <h2 class="text-3xl font-bold mb-6">Modul 4: Pemrograman Dinamis</h2>
+                    
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">4.1 Konsep Dasar Pemrograman Dinamis</h3>
+                        <p class="mb-4">Pemrograman Dinamis adalah teknik untuk memecahkan masalah kompleks dengan memecahnya menjadi submasalah yang lebih sederhana dan menyimpan hasil submasalah untuk menghindari perhitungan berulang.</p>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">4.2 Karakteristik Utama Pemrograman Dinamis</h3>
+                        <ul class="list-disc list-inside mb-4">
+                            <li>Overlapping Subproblems: Submasalah yang sama muncul berulang kali.</li>
+                            <li>Optimal Substructure: Solusi optimal untuk masalah dapat dibangun dari solusi optimal submasalahnya.</li>
+                        </ul>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">4.3 Pendekatan Pemrograman Dinamis</h3>
+                        <div class="mb-4">
+                            <h4 class="text-xl font-semibold mb-2">a) Top-down (Memoization)</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Mulai dari masalah besar, pecah menjadi submasalah.</li>
+                                <li>Simpan hasil submasalah dalam struktur data (biasanya array atau hash table).</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-2">b) Bottom-up (Tabulation)</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Mulai dari submasalah terkecil, bangun solusi untuk masalah yang lebih besar.</li>
+                                <li>Isi tabel dengan solusi submasalah secara iteratif.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">4.4 Contoh Pemrograman Dinamis dalam Kehidupan Sehari-hari</h3>
+                        <div class="mb-4">
+                            <h4 class="text-xl font-semibold mb-2">a) Perencanaan Rute Perjalanan</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Proses: Menyimpan jarak terpendek antara kota-kota yang sering dikunjungi.</li>
+                                <li>Overlapping Subproblems: Rute antara dua kota mungkin menjadi bagian dari banyak perjalanan berbeda.</li>
+                                <li>Optimal Substructure: Rute terpendek antara A dan C melalui B adalah kombinasi rute terpendek A-B dan B-C.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-2">b) Manajemen Inventaris</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Proses: Menentukan jumlah optimal stok barang berdasarkan pola permintaan historis.</li>
+                                <li>Overlapping Subproblems: Permintaan untuk periode tertentu mungkin relevan untuk berbagai keputusan inventaris.</li>
+                                <li>Optimal Substructure: Keputusan optimal untuk satu periode bergantung pada keputusan optimal periode-periode sebelumnya.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">4.5 Implementasi Pemrograman Dinamis dalam C++</h3>
+                        <pre class="line-numbers bg-gray-100 p-4 rounded-lg overflow-x-auto">
+<code class="language-cpp">
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+// Bottom-up approach for Fibonacci sequence
+int fibonacciDP(int n) {
+    vector&lt;int&gt; fib(n + 1);
+    fib[0] = 0;
+    fib[1] = 1;
+    for (int i = 2; i <= n; i++) {
+        fib[i] = fib[i-1] + fib[i-2];
+    }
+    return fib[n];
+}
+
+// Top-down approach for Fibonacci sequence
+int fibMemo(int n, vector&lt;int&gt;& memo) {
+    if (n <= 1) return n;
+    if (memo[n] != -1) return memo[n];
+    memo[n] = fibMemo(n-1, memo) + fibMemo(n-2, memo);
+    return memo[n];
+}
+
+int fibonacciMemo(int n) {
+    vector&lt;int&gt; memo(n + 1, -1);
+    return fibMemo(n, memo);
+}
+
+int main() {
+    int n = 10;
+    cout << "10th Fibonacci number (Bottom-up): " << fibonacciDP(n) << endl;
+    cout << "10th Fibonacci number (Top-down): " << fibonacciMemo(n) << endl;
+    return 0;
+}
+</code>
+                        </pre>
+                    </section>
+
+                    <section class="mb-8">
+                        <h3 class="text-2xl font-semibold mb-4">4.6 Keuntungan dan Kerugian Pemrograman Dinamis</h3>
+                        <div class="mb-4">
+                            <h4 class="text-xl font-semibold mb-2">Keuntungan:</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Efisien untuk masalah dengan submasalah yang tumpang tindih.</li>
+                                <li>Dapat menyelesaikan masalah optimasi yang kompleks.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-2">Kerugian:</h4>
+                            <ul class="list-disc list-inside ml-6">
+                                <li>Memerlukan lebih banyak memori untuk menyimpan solusi submasalah.</li>
+                                <li>Dapat sulit untuk mengidentifikasi struktur optimal submasalah.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-2xl font-semibold mb-4">Latihan</h3>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Implementasikan solusi Pemrograman Dinamis untuk masalah "Coin Change" (menentukan jumlah minimum koin untuk membuat jumlah tertentu).</li>
+                            <li>Gunakan Pemrograman Dinamis untuk menyelesaikan masalah "Longest Common Subsequence" antara dua string.</li>
+                        </ol>
+                    </section>
+                </div>
+            </div>
+
+            <div class="flex justify-between font-bold mt-6">
+                <button id="prevBtn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    <i class="fas fa-arrow-left mr-2"></i> Sebelumnya
+                </button>
+                <button id="nextBtn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    Selanjutnya <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+<script>
+    const pages = document.querySelectorAll('.page');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentPage = 0;
+
+    function showPage(n) {
+        pages[currentPage].classList.remove('active');
+        currentPage = (n + pages.length) % pages.length;
+        pages[currentPage].classList.add('active');
+        updateButtons();
+    }
+
+    function updateButtons() {
+        prevBtn.style.visibility = currentPage === 0 ? 'hidden' : 'visible';
+        nextBtn.style.visibility = currentPage === pages.length - 1 ? 'hidden' : 'visible';
+    }
+
+    prevBtn.addEventListener('click', () => showPage(currentPage - 1));
+    nextBtn.addEventListener('click', () => showPage(currentPage + 1));
+
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+
+    menuBtn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+
+    updateButtons();
+</script>
+<footer class="bg-gray-900 text-white  font-bold text-center p-4 mt-8">
+    <p>Modul Berpikir Komputasional XI - Alfaruq Asri, S.Pd</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+</body>
+</html>
